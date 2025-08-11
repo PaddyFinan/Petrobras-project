@@ -1,63 +1,39 @@
-# Petrobras x Oil x FX Mini Analysis
+Petrobras x Oil x FX Mini Analysis
+1. Project Overview
+This project looks at how Petrobras (PBR) stock returns move in relation to Brent crude oil prices, the USD/BRL exchange rate, and the Bovespa index. I wanted to see which factor had the strongest connection to Petrobras’ performance and whether oil or currency shifts played the bigger role.
+The analysis uses real market data and focuses on the statistical relationships between these variables, backed up with visualizations and correlation matrices.
 
-## 1. Project Overview
-This project investigates the relationships between Petrobras (PBR) stock returns, Brent crude oil prices, USD/BRL exchange rates, and the Bovespa index. The analysis focuses on identifying which factor most strongly influences Petrobras' performance, with a particular focus on the role of oil prices and currency movements.
+Main question:
+Do Petrobras shares react more to changes in oil prices or to shifts in the Brazilian real’s exchange rate?
 
-**Key Question:** How do oil prices and FX rates influence Petrobras’ stock returns?
-
-## 2. Skills Demonstrated
-- **Web Scraping & Data Acquisition**: Downloading financial market data from Yahoo Finance using the `yfinance` library.
-- **Python Data Analysis**: Using `pandas` for data manipulation and cleaning.
-- **Data Cleaning**: Handling missing values, forward-filling gaps, and aligning time series.
-- **Financial Transformations**: Calculating daily percentage returns and rebasing price series.
-- **Statistical Analysis**: Creating correlation matrices and running multiple linear regressions (`statsmodels`).
-- **Visualization**: Building time series plots, scatter plots, and rolling correlation charts with `matplotlib`.
-- **Econometric Interpretation**: Understanding beta coefficients, p-values, and R² in financial contexts.
-
-## 3. Methodology
-1. **Data Source**: Yahoo Finance via `yfinance.download()` for:
-   - `PBR`: Petrobras ADR (USD)
-   - `BZ=F`: Brent crude oil futures (USD)
-   - `BRL=X`: USD to Brazilian Real exchange rate
-   - `^BVSP`: Bovespa Index (BRL)
-2. **Data Cleaning**:
-   - Keep only Adjusted Close prices.
-   - Remove rows with all missing values.
-   - Forward-fill small gaps.
-3. **Analysis Steps**:
-   - Calculate daily returns.
-   - Compute correlations between all assets.
-   - Run OLS regression: `PBR_ret ~ Brent_ret + USDBRL_ret`.
-   - Create 3 visualizations: rebased prices, scatter plot, and rolling correlations.
-
-## 4. Key Results
-
-### Correlation Matrix (Daily Returns)
-- **PBR vs Bovespa**: Highest positive correlation, indicating Petrobras moves closely with the Brazilian stock market.
-- **PBR vs Brent**: Moderate positive correlation, showing oil prices influence Petrobras but less than Bovespa.
-- **PBR vs USD/BRL**: Negative correlation, meaning Petrobras tends to rise when the Real strengthens vs USD.
-
-### Regression Results (OLS)
-- **Brent Returns**: Positive and statistically significant (p < 0.05), confirming oil prices are an important driver.
-- **USD/BRL Returns**: Negative coefficient, sometimes insignificant, meaning FX effects are weaker than oil price effects.
-- **R²**: Indicates how much of Petrobras’ daily return variation is explained by oil and FX.
-
-## 5. Statistical Significance
-- **p-value < 0.05**: Strong evidence the relationship is real, not due to chance.
-- In this analysis, Brent's coefficient met this threshold, confirming its role as a primary driver.
-
-## 6. Visualizations
-1. **Rebased Prices** (`rebased_prices.png`):
-   - Compares cumulative performance of PBR, Brent, and Bovespa since the start date.
-2. **Scatter Plot** (`scatter_brent_pbr.png`):
-   - Shows relationship between Brent and Petrobras daily returns with regression line.
-3. **Rolling Correlations** (`rolling_correlations.png`):
-   - Tracks 90-day moving correlations over time between Petrobras and each driver.
-
-## 7. Conclusion
-- Petrobras stock is **most correlated with the Bovespa index**.
-- Oil prices (Brent) are the **most statistically significant external driver** of Petrobras returns.
-- FX (USD/BRL) plays a smaller role compared to oil and the Brazilian market index.
-
+2. Skills Demonstrated
+While building this, I:
+Pulled real-world financial data with Python (using yfinance)
+Cleaned and prepared time series data in pandas
+Normalized price series to compare performance
+Calculated returns and built correlation matrices
+Created visualizations with matplotlib
+Exported charts and statistical summaries for reporting
+Used Git & GitHub for version control and project sharing
+3. Results Summary
+PBR vs. Bovespa Index: Strongest positive correlation (~0.91). Petrobras tends to move closely with the Brazilian stock market overall.
+PBR vs. Brent Oil: Positive but weaker correlation (~0.62). Oil prices matter, but not as much as the general market index.
+PBR vs. USD/BRL: Negative correlation (~-0.45). A stronger USD vs. BRL generally lines up with weaker Petrobras performance.
+Oil vs. USD/BRL: Very small negative correlation (~-0.03), meaning currency changes don’t have much direct link to oil prices in this period.
+Takeaway: Petrobras stock is most influenced by the Brazilian equity market, with oil prices playing a secondary role and currency fluctuations having a smaller but still noticeable effect.
+4. How to Run
+Clone the repository:
+git clone https://github.com/PaddyFinan/Petrobras-project.git
+cd Petrobras-project
+Set up environment & install dependencies:
+pip install -r requirements.txt
+Run the analysis:
+python pbr_mini_analysis.py
+The charts and analysis outputs will be saved in the output/ folder.
+5. Files in This Project
+pbr_mini_analysis.py → Full Python analysis script
+requirements.txt → Dependencies needed to run the script
+output/ → Contains generated charts and results
+README.md → Project overview and results summary
 ---
 *Author: Padraic Finan*
