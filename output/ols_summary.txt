@@ -1,0 +1,26 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PBR_ret   R-squared:                       0.196
+Model:                            OLS   Adj. R-squared:                  0.195
+Method:                 Least Squares   F-statistic:                     304.6
+Date:                Sun, 10 Aug 2025   Prob (F-statistic):          4.04e-119
+Time:                        19:32:05   Log-Likelihood:                 5410.1
+No. Observations:                2504   AIC:                        -1.081e+04
+Df Residuals:                    2501   BIC:                        -1.080e+04
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.0011      0.001      1.930      0.054   -1.71e-05       0.002
+Brent_ret      0.5667      0.023     24.682      0.000       0.522       0.612
+USDBRL_ret     0.0354      0.053      0.662      0.508      -0.069       0.140
+==============================================================================
+Omnibus:                      435.030   Durbin-Watson:                   2.084
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             7131.706
+Skew:                          -0.300   Prob(JB):                         0.00
+Kurtosis:                      11.246   Cond. No.                         95.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

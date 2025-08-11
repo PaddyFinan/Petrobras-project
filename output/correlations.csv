@@ -1,0 +1,5 @@
+Ticker,PBR_ret,Brent_ret,USDBRL_ret,Bovespa_ret
+PBR_ret,1.0,0.4424,0.0005,0.7542
+Brent_ret,0.4424,1.0,-0.0258,0.2715
+USDBRL_ret,0.0005,-0.0258,1.0,0.017
+Bovespa_ret,0.7542,0.2715,0.017,1.0
